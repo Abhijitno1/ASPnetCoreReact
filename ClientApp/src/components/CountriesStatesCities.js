@@ -8,6 +8,9 @@ const divStyle = {
     display: "inline-block",
     width: "100px"
 };
+const comboStyle = {
+    width: '250px'
+};
 const apiHeaders = {
     "X-RapidAPI-Key": MY_API_KEY,
     "X-RapidAPI-Host": "wft-geo-db.p.rapidapi.com"
@@ -55,20 +58,19 @@ export function CountriesStatesCities() {
                     { value: null, text: '' },
                     ...data.data.map(state => { return { value: state.isoCode, text: state.name } }).sort(objectSorter)
                 ];
-            console.log(newStates);
+            //console.log(newStates);
             setStates(newStates);
         });
     }
 
     function fetchCities(stateid) {
         console.log('fetching cities for ' + stateid, selectedCountry.value);
-        console.log('calling api', BASE_API_URL + `countries/${selectedCountry.value}/regions/${stateid}/cities`);
         //countries/US/regions/CA/cities
         fetch(BASE_API_URL + `countries/${selectedCountry.value}/regions/${stateid}/cities`, {
             headers: apiHeaders,
         }).then(res => res.json())
         .then(data => {
-            console.log(data);
+            //console.log(data);
             setCities([
                 { value: null, text: '' },
                 ...data.data.map(city => { return { value: city.id, text: city.name } }).sort(objectSorter)
@@ -80,23 +82,25 @@ export function CountriesStatesCities() {
     }
 
     function onCountrySelect(e) {
-        console.log('You selected country - ' + e.target.value);
         fetchStates(e.target.value);
         //fetchStates('GH');
         let foundCountry = countries.find(c => c.value == e.target.value);
         setSelectedCountry(foundCountry);
+        console.log(`You selected country -${foundCountry?foundCountry.text:'none'}`);
     }
 
     function onStateSelect(e) {
-        console.log('You selected state - ' + e.target.value);
         fetchCities(e.target.value);
         //fetchCities('BA');
         let foundState = states.find(s => s.value == e.target.value);
         setSelectedState(foundState);
+        console.log(`You selected state -${foundState ? foundState.text : 'none'}`);
     }
 
     function onCitySelect(e) {
-        console.log('You selected city - ' + e.target.value);
+        let foundCity = cities.find(c => c.value == e.target.value);
+        setSelectedCity(foundCity);
+        console.log(`You selected city -${foundCity ? foundCity.text : 'none'}`);
     }
 
     return (
@@ -104,15 +108,18 @@ export function CountriesStatesCities() {
             <h1>Countries, States, Cities</h1>
             <br/>
             <div>
-                <div style={divStyle}>Country:</div> <Combobox selectedOption={selectedCountry} availableOptions={countries} onOptionSelect={onCountrySelect} />
+                <div style={divStyle}>Country:</div> <Combobox title="Countries" estyle={comboStyle} selectedOption={selectedCountry}
+                    availableOptions={countries} onOptionSelect={onCountrySelect} />
             </div>
             <br/>
             <div>
-                <div style={divStyle}>State:</div> <Combobox selectedOption={selectedState} availableOptions={states} onOptionSelect={onStateSelect} />
+                <div style={divStyle}>State:</div> <Combobox title="States" estyle={comboStyle} selectedOption={selectedState}
+                    availableOptions={states} onOptionSelect={onStateSelect} />
             </div>
             <br />
             <div>
-                <div style={divStyle}>City:</div> <Combobox selectedOption={selectedCity} availableOptions={cities} onOptionSelect={onCitySelect} />
+                <div style={divStyle}>City:</div> <Combobox title="Cities" estyle={comboStyle} selectedOption={selectedCity}
+                    availableOptions={cities} onOptionSelect={onCitySelect} />
             </div>
         </>
     );
