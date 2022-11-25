@@ -30,22 +30,47 @@ export function CountriesStatesCities() {
     }, []);
 
     function fetchCountries() {
-        console.log('fetching countries');
-        fetch(BASE_API_URL + 'countries', {
-            headers: apiHeaders,
-        }).then(res => res.json())
-        .then(data => {
-            var newCountries = [
-                { value: null, text: '' },
-                ...data.data.map(country => { return { value: country.code, text: country.name } }).sort(objectSorter)
-            ];
-            //console.log(newCountries);
-            setCountries(newCountries);
-        });
+        let currentOffset = 0, totalCount = 0, retries = 0;
+        let newCountries = [];
+        let pageSize = 5;
+        let fetchNow = function () {
+            console.log('fetching countries PageSize CurrentOffset TotalCount', pageSize, currentOffset, totalCount);
+            fetch(BASE_API_URL + 'countries', {
+                headers: apiHeaders,
+                params: {offset: currentOffset}
+            }).then(res => res.json())
+                .then(data => {
+                    if (data.data) {
+                        retries = 0;
+                        let pagedCountries = data.data.map(country => { return { value: country.code, text: country.name } });
+                        newCountries = newCountries.concat(pagedCountries);
+                        pageSize = data.data.length;
+                        totalCount = data.metadata.totalCount;
+                        currentOffset = currentOffset + pageSize;
+                        if (currentOffset <= totalCount)
+                            fetchNow();
+                        else {
+                            //console.log(newCountries);
+                            newCountries.sort(objectSorter);
+                            newCountries = [{ value: null, text: '' }, ...newCountries];
+                            setCountries(newCountries);
+                        }
+                    }
+                    else {
+                        //For current offset try again 2 times
+                        retries++;
+                        if (retries < 3)
+                            fetchNow();
+                        else
+                            retries = 0; //reset tries counter so that it can be used for next offset failure if any
+                    }
+            });
+        }
+        fetchNow();
     }
 
     function objectSorter(prev, next) {
-        return prev.text < next.text;
+        return (prev.text < next.text ? -1 : (prev.text == next.text ? 0 : 1));
     }
 
     function fetchStates(country) {

@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ASPnetCoreReact.Models;
+using Microsoft.AspNetCore.Mvc;
+using System.Data.SqlClient;
 
 namespace ASPnetCoreReact.Controllers
 {

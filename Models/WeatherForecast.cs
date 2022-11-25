@@ -1,4 +1,4 @@
-namespace ASPnetCoreReact
+namespace ASPnetCoreReact.Models
 {
     public class WeatherForecast
     {
