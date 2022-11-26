@@ -1,9 +1,28 @@
-﻿import React, { useState } from 'react';
+﻿import React, { useState, useRef } from 'react';
 import '../css/JSPlayer.css';
 
 export function JavascriptPlayer() {
+    const txtWhiteboardRef = useRef();
+    const iframeRef = useRef();
+
     function onBtnRunClick(e) {
-        alert('You clicked ' + e.target.title + ' button');
+        //alert('You clicked ' + e.target.title + ' button');
+        var userScript = txtWhiteboardRef.current.value;
+        fetch('utility?js=' + userScript)
+            .then(response => response.text()) //https://javascript.info/fetch
+            .then(data => {
+                console.log('Server data', data)
+                //var encodedData = encodeURIComponent(data);
+                //var uriData = URL.createObjectURL(encodedData);
+                //iframeRef.current.setSrc(uriData);
+                //https://stackoverflow.com/questions/6102636/html-code-as-iframe-source-rather-than-a-url
+                var iframe = iframeRef.current,
+                    iframedoc = iframe.contentDocument || iframe.contentWindow.document;
+                iframedoc.body.innerHTML = data;
+            })
+            .catch(function (error) {
+                console.error(error);
+            });
     }
 
     return (
@@ -23,10 +42,10 @@ export function JavascriptPlayer() {
             </div>
             <div className="playground">
                 <div className="testresultswrapper">
-                    <textarea id="txtWhiteboard" name="txtWhiteboard"></textarea>
+                    <textarea id="txtWhiteboard" name="txtWhiteboard" ref={txtWhiteboardRef}></textarea>
                 </div>
                 <div className="testresultswrapper withborder">
-                    <iframe frameborder="0" id="iframeResult" name="iframeResult" allowfullscreen="true" />
+                    <iframe frameBorder="0" id="iframeResult" name="iframeResult" allowFullScreen={true} ref={iframeRef} />
                 </div>
             </div>
         </>
