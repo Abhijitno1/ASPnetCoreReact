@@ -46,7 +46,10 @@ export class FetchData extends Component {
       <div>
         <h1 id="tabelLabel" >Weather forecast</h1>
         <p>This component demonstrates fetching data from the server.</p>
-        {contents}
+            {contents}
+            <div>
+                <button onClick={this.hitServerError}>Click me to test DB server error</button>
+            </div>
       </div>
     );
   }
@@ -56,4 +59,16 @@ export class FetchData extends Component {
     const data = await response.json();
     this.setState({ forecasts: data, loading: false });
   }
+
+    hitServerError() {
+        fetch('countries/test')
+        .then(res =>
+                res.json())
+        .then(data => {
+            console.log('Server Error', data)
+        })
+        .catch(function (error) {
+            console.error(error);
+        });
+    }
 }

@@ -31,5 +31,22 @@ namespace ASPnetCoreReact.Controllers
         {
             return _repository.GetCitiesForStateNCountry(new Country { Id = countryId }, new State { Id = stateId });
         }
+
+        [HttpGet("test")]
+        public ActionResult<ServerError> TestMethod() 
+        {
+            ServerError err = new();
+            try
+            {
+                var op = _repository.GetAllCountries();
+
+            }
+            catch (Exception ex)
+            {
+                err.Message = ex.Message; 
+                err.StackTrace = ex.StackTrace;
+            }
+            return err;
+        }
     }
 }
