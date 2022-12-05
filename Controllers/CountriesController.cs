@@ -1,9 +1,11 @@
 ﻿using ASPnetCoreReact.Models;
 using ASPnetCoreReact.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ASPnetCoreReact.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class CountriesController : ControllerBase

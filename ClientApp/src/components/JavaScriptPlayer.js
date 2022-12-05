@@ -8,6 +8,13 @@ export function JavascriptPlayer() {
     function onBtnRunClick(e) {
         //alert('You clicked ' + e.target.title + ' button');
         var userScript = txtWhiteboardRef.current.value;
+        var iframe = iframeRef.current,
+            iframedoc = iframe.contentDocument || iframe.contentWindow.document;
+        iframedoc.body.innerHTML = userScript;
+    }
+
+    function oldFetchCode() {
+        var userScript = txtWhiteboardRef.current.value;
         fetch('utility?js=' + userScript)
             .then(response => response.text()) //https://javascript.info/fetch
             .then(data => {

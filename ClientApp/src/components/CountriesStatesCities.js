@@ -10,9 +10,10 @@ const divStyle = {
 const comboStyle = {
     width: '250px'
 };
-const apiHeaders = {
-    "X-RapidAPI-Key": '',
-    "X-RapidAPI-Host": "wft-geo-db.p.rapidapi.com"
+const clientSecret = {
+    UserName: "adesai21",
+    RegdEmail: 'myapp@notmail.net',
+    SecretKey: 'abracadabra'
 };
 
 //Ref: https://www.universal-tutorial.com/rest-apis/free-rest-api-for-country-state-city
@@ -23,18 +24,42 @@ export function CountriesStatesCities() {
     var [selectedState, setSelectedState] = useState();
     var [cities, setCities] = useState([]);
     var [selectedCity, setSelectedCity] = useState();
+    var authToken;
+
 
     useEffect(() => {
-        fetchCountries();
+        //get authentication token first
+        getToken();
     }, []);
+
+    function getToken() {
+        fetch('token', {
+            headers: { 'content-type': 'application/json' },
+            method: 'POST',
+            body: JSON.stringify(clientSecret)
+        })
+        .then(res => res.json())
+            .then(data => {
+                authToken = data.token;
+                fetchCountries();
+            });
+    }
+    function createApiHeaders() {
+        return {
+            'content-type': 'application/json',
+            'Authorization': `Bearer ${authToken}`
+        };
+    }
 
     function fetchCountries() {
         let newCountries = [];
         let fetchNow = function () {
             console.log('fetching countries');
             fetch(BASE_API_URL, {
-                headers: apiHeaders,
-            }).then(res => res.json())
+                method: 'GET',
+                headers: createApiHeaders(),
+            })
+            .then(res => res.json())
             .then(data => {
                 if (data) {
                     let pagedCountries = data.map(country => { return { value: country.id, text: country.name } });
@@ -59,7 +84,8 @@ export function CountriesStatesCities() {
     function fetchStates(country) {
         console.log('fetching states for ' + country)
         fetch(BASE_API_URL + `/${country}/states`, {
-            headers: apiHeaders,
+            method: 'GET',
+            headers: createApiHeaders(),
         }).then(res => res.json())
         .then(data => {
             var newStates = [
@@ -78,7 +104,8 @@ export function CountriesStatesCities() {
         console.log('fetching cities for ' + stateid, selectedCountry.value);
         //countries/US/regions/CA/cities
         fetch(BASE_API_URL + `/${selectedCountry.value}/states/${stateid}/cities`, {
-            headers: apiHeaders,
+            method: 'GET',
+            headers: createApiHeaders(),
         }).then(res => res.json())
         .then(data => {
             //console.log(data);
