@@ -19,8 +19,8 @@ namespace ASPnetCoreReact.Controllers
       this._config = config;
     }
 
-    [AllowAnonymous]
-    [HttpPost] //Change to HttpPost later
+    //[AllowAnonymous]
+    [HttpPost]
     public IActionResult Login([FromBody]ClientCredentials loginCredentials)
     {
       var response = Unauthorized();
@@ -42,6 +42,7 @@ namespace ASPnetCoreReact.Controllers
         new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
         new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
         new Claim("UserId", loginCredentials.Username),
+        new Claim("DisplayName", loginCredentials.Username),
         new Claim("UserName", loginCredentials.Username),
         new Claim("Email", loginCredentials.RegdEmail)
       }; 

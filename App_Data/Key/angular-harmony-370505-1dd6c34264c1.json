@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "angular-harmony-370505",
+  "private_key_id": "1dd6c34264c10cc6e1c845e58878893fe39f6aff",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDWm3/hd9Ml62+q\nxK4rAeXdp5JL4fundM4lX2vkTXeh6JtfZlUsmdOsDjK1mSQ3I2u5qceVNZf0rPaH\nhzLuqX2Ftubv41iWHXFrNnC7yLOFvFE6WBGAdGKkJB7UYhyAIKeIVE+IFspJx5vC\nO1gQklzQFna5ew6ZxVLyVHeltLaudoinsLdBl/TUySps1wsQ885GocECuSQNU83g\n8baeISw1kq/hpI/t3+1xW3XqbGfcKDJnRfCirVn1xccU2rurVInXAVXQGjalnphF\n8SodL8SKDDlTK+NDB0h1ru4HaIvYe2A1PKW7PplTgCQWwFy4e7WCqff4HvxIQtC/\nxGp6l95zAgMBAAECggEABI8rZUPiKkaFdJbNt5adwfZB0LdRRLaYuSSVeC85zeua\nU+Znlh5v7dts+y1kmHPz4YdjHXFqQEpBEnPJsFZG8p3Vfe1teFgaybkxATgbdKTS\ncKrN+kmH120cvI+jzL89O1mg58cfylkkhqBkXcfbk3K5ZHXPyZLD7JJGreEYOzf2\n316ebAAaU4UATXTZNlhl8rI4F086lSfdfU4wzv2S/cKUCXihaIbh4bUz6FeijO19\nOAU0+z/7gXYsRYS1dPpqE5zvH513eLg00rN6m7SrBsuvpYKX0LMlrcnyq3iGDr6n\nUDUpxOsA/JVe+PFlTajvBNL0Lq0ySC/2EUiFggWyeQKBgQDuYgneypmKW4sphYEK\nzGBAloNLUXSJ5SH9+Ryg80vVnC2zFsjMpWs3RsI4OBi8fTuSXgm1r4ykHBFQe510\ncuH31XGc1rVHrzQtx9vOg8pfJGnv+gjNMnlWxZ6fnRObkkLkOIcmXlenPjwaj0pF\nAxBlnHpuLbT9lVnlR6b5OsJ6qwKBgQDmd6btfKd07Dr1alXdbcb+10GfMoiPmNy5\nmHygwXq1UABOExHnONXFVztuFbL/e54pTebDKe+CcG4WOutLpac8+uIhXv2VjAdp\nx0gNeoaQM3FgFvmqPibUfspN5o0PnRtxzJ1RoFgkZOJxDwWbsXP+0+Dgf911Ppht\nOubJ/yGrWQKBgCs74KpleD9dpvma2vKIapSMN7e7SDWSNv4G5ihSt9hAARHP+g8T\nmURnMuZbVjEpTVqYb45iDlHdPU6pfL8X7t+x+G8Hic08e2wqKTVlNZjX09bQNDRz\nCQqxwLkWFe5LMpKNpgVRavhMEz6F6mRlz9196b59z6uGIM2ylxfwjkENAoGATLxY\nM0jHBPJG60Hdlx2fHWkUq2oK+C0AiTdRf8EMF2SsxVIqKt/MpalW21+UOuaxEbWj\neSX0Xm0K6pHxmD1uwqoSMuRK8MkwCrNUtVAvj8HhJQphVKLfEO+qcmeqXiGEas6j\nLvOBhZSlpNlIl79tDNMFVBqe5RPTcsMi5uzxC/kCgYEA0UY7PRldh8TBqEbJA6x6\nNLzMntGdxv00A5CqX0JoF0vqXJ/DQXPBrSWt0omjoB42M/O2VR9iMtoCLazpSqqN\nh4X64tsXiSBuhpk+pW1bhUJNVxZecPNvWfJ6qI0r14MomxxdrfVOrbERYNeUnkbH\nlzKkYxLLKLZpsW5rFsaPVfo=\n-----END PRIVATE KEY-----\n",
+  "client_email": "my-first-project-svc-acct@angular-harmony-370505.iam.gserviceaccount.com",
+  "client_id": "105538403827074206350",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/my-first-project-svc-acct%40angular-harmony-370505.iam.gserviceaccount.com"
+}

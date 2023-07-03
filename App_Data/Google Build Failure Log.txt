@@ -1,0 +1,128 @@
+
+D:\Pract\Projects\ASPnetCoreReact>gcloud app deploy .\bin\release\net6.0\publish\app.yaml
+ERROR: (gcloud.app.deploy) An error occurred while parsing file: [D:\Pract\Projects\ASPnetCoreReact\bin\release\net6.0\publish\app.yaml]
+Unable to assign value '1.ASPnetCoreReact.angular-harmony-370505' to attribute 'service':
+Value '1.ASPnetCoreReact.angular-harmony-370505' for service does not match expression '^(?:^(?!-)[a-z\d\-]{0,62}[a-z\d]$)$'
+  in "D:\Pract\Projects\ASPnetCoreReact\bin\release\net6.0\publish\app.yaml", line 3, column 10
+
+D:\Pract\Projects\ASPnetCoreReact>gcloud app deploy .\bin\release\net6.0\publish\app.yaml
+ERROR: (gcloud.app.deploy) An error occurred while parsing file: [D:\Pract\Projects\ASPnetCoreReact\bin\release\net6.0\publish\app.yaml]
+Unable to assign value 'ASPnetCoreReact.angular-harmony-370505' to attribute 'service':
+Value 'ASPnetCoreReact.angular-harmony-370505' for service does not match expression '^(?:^(?!-)[a-z\d\-]{0,62}[a-z\d]$)$'
+  in "D:\Pract\Projects\ASPnetCoreReact\bin\release\net6.0\publish\app.yaml", line 3, column 10
+
+D:\Pract\Projects\ASPnetCoreReact>gcloud app deploy .\bin\release\net6.0\publish\app.yaml
+You are creating an app for project [angular-harmony-370505].
+WARNING: Creating an App Engine application for a project is irreversible and the region
+cannot be changed. More information about regions is at
+<https://cloud.google.com/appengine/docs/locations>.
+
+Please choose the region where you want your App Engine application located:
+
+ [1] asia-east1    (supports standard and flexible)
+ [2] asia-east2    (supports standard and flexible and search_api)
+ [3] asia-northeast1 (supports standard and flexible and search_api)
+ [4] asia-northeast2 (supports standard and flexible and search_api)
+ [5] asia-northeast3 (supports standard and flexible and search_api)
+ [6] asia-south1   (supports standard and flexible and search_api)
+ [7] asia-southeast1 (supports standard and flexible)
+ [8] asia-southeast2 (supports standard and flexible and search_api)
+ [9] australia-southeast1 (supports standard and flexible and search_api)
+ [10] europe-central2 (supports standard and flexible)
+ [11] europe-west   (supports standard and flexible and search_api)
+ [12] europe-west2  (supports standard and flexible and search_api)
+ [13] europe-west3  (supports standard and flexible and search_api)
+ [14] europe-west6  (supports standard and flexible and search_api)
+ [15] northamerica-northeast1 (supports standard and flexible and search_api)
+ [16] southamerica-east1 (supports standard and flexible and search_api)
+ [17] us-central    (supports standard and flexible and search_api)
+ [18] us-east1      (supports standard and flexible and search_api)
+ [19] us-east4      (supports standard and flexible and search_api)
+ [20] us-west1      (supports standard and flexible)
+ [21] us-west2      (supports standard and flexible and search_api)
+ [22] us-west3      (supports standard and flexible and search_api)
+ [23] us-west4      (supports standard and flexible and search_api)
+ [24] cancel
+Please enter your numeric choice:  18
+
+Creating App Engine application in project [angular-harmony-370505] and region [us-east1]....done.
+Services to deploy:
+
+descriptor:                  [D:\Pract\Projects\ASPnetCoreReact\bin\release\net6.0\publish\app.yaml]
+source:                      [D:\Pract\Projects\ASPnetCoreReact\bin\release\net6.0\publish]
+target project:              [angular-harmony-370505]
+target service:              [default]
+target version:              [20221205t221442]
+target url:                  [https://angular-harmony-370505.ue.r.appspot.com]
+target service account:      [my-first-project-svc-acct@angular-harmony-370505.iam.gserviceaccount.com]
+
+
+Do you want to continue (Y/n)?  y
+
+Enabling service [appengineflex.googleapis.com] on project [angular-harmony-370505]...
+Operation "operations/acf.p2-403988128922-3fa1a80e-7ba0-40b4-b8d7-2ea36113ca53" finished successfully.
+Beginning deployment of service [default]...
+#============================================================#
+#= Uploading 97 files to Google Cloud Storage               =#
+#============================================================#
+File upload done.
+Updating service [default] (this may take several minutes)...done.
+------------------------------------------------- REMOTE BUILD OUTPUT --------------------------------------------------starting build "4016a6b4-99cc-4e7e-84fe-191dc2a81b60"
+
+FETCHSOURCE
+BUILD
+Starting Step #0 - "fetcher"
+Step #0 - "fetcher": Already have image (with digest): gcr.io/cloud-builders/gcs-fetcher
+Step #0 - "fetcher": Fetching manifest gs://staging.angular-harmony-370505.appspot.com/ae/24607187-d14a-4112-ae28-b35f64a9f6df/manifest.json.
+Step #0 - "fetcher": Processing 105 files.
+Step #0 - "fetcher": ******************************************************
+Step #0 - "fetcher": Status:                      SUCCESS
+Step #0 - "fetcher": Started:                     2022-12-06T03:16:38Z
+Step #0 - "fetcher": Completed:                   2022-12-06T03:16:39Z
+Step #0 - "fetcher": Requested workers:    200
+Step #0 - "fetcher": Actual workers:       105
+Step #0 - "fetcher": Total files:          105
+Step #0 - "fetcher": Total retries:          0
+Step #0 - "fetcher": GCS timeouts:           0
+Step #0 - "fetcher": MiB downloaded:        28.61 MiB
+Step #0 - "fetcher": MiB/s throughput:      46.13 MiB/s
+Step #0 - "fetcher": Time for manifest:    271.45 ms
+Step #0 - "fetcher": Total time:             0.89 s
+Step #0 - "fetcher": ******************************************************
+Finished Step #0 - "fetcher"
+Starting Step #1
+Step #1: Pulling image: gcr.io/gcp-runtimes/aspnetcorebuild@sha256:f5552a5efdaf278a3124ea10fd1c9636b09fc9f98f9e620cbd71279797576b3f
+Step #1: gcr.io/gcp-runtimes/aspnetcorebuild@sha256:f5552a5efdaf278a3124ea10fd1c9636b09fc9f98f9e620cbd71279797576b3f: Pulling from gcp-runtimes/aspnetcorebuild
+Step #1: bd0de8be231c: Pulling fs layer
+Step #1: 091745073ef1: Pulling fs layer
+Step #1: 355bf594d611: Pulling fs layer
+Step #1: 013d0752935b: Pulling fs layer
+Step #1: 4c7d0d02eb09: Pulling fs layer
+Step #1: 013d0752935b: Waiting
+Step #1: 4c7d0d02eb09: Waiting
+Step #1: 355bf594d611: Verifying Checksum
+Step #1: 355bf594d611: Download complete
+Step #1: 091745073ef1: Verifying Checksum
+Step #1: 091745073ef1: Download complete
+Step #1: 013d0752935b: Download complete
+Step #1: 4c7d0d02eb09: Verifying Checksum
+Step #1: 4c7d0d02eb09: Download complete
+Step #1: bd0de8be231c: Verifying Checksum
+Step #1: bd0de8be231c: Pull complete
+Step #1: 091745073ef1: Pull complete
+Step #1: 355bf594d611: Pull complete
+Step #1: 013d0752935b: Pull complete
+Step #1: 4c7d0d02eb09: Pull complete
+Step #1: Digest: sha256:f5552a5efdaf278a3124ea10fd1c9636b09fc9f98f9e620cbd71279797576b3f
+Step #1: Status: Downloaded newer image for gcr.io/gcp-runtimes/aspnetcorebuild@sha256:f5552a5efdaf278a3124ea10fd1c9636b09fc9f98f9e620cbd71279797576b3f
+Step #1: gcr.io/gcp-runtimes/aspnetcorebuild@sha256:f5552a5efdaf278a3124ea10fd1c9636b09fc9f98f9e620cbd71279797576b3f
+Step #1: No valid .NET Core runtime version found for the app or it is not a supported app.
+Finished Step #1
+ERROR
+ERROR: build step 1 "gcr.io/gcp-runtimes/aspnetcorebuild@sha256:f5552a5efdaf278a3124ea10fd1c9636b09fc9f98f9e620cbd71279797576b3f" failed: step exited with non-zero status: 1
+------------------------------------------------------------------------------------------------------------------------Updating service [default] (this may take several minutes)...failed.
+ERROR: (gcloud.app.deploy) Error Response: [9] Cloud build 4016a6b4-99cc-4e7e-84fe-191dc2a81b60 status: FAILURE
+Build error details: Build error details not available.
+Full build logs: https://console.cloud.google.com/cloud-build/builds/4016a6b4-99cc-4e7e-84fe-191dc2a81b60?project=403988128922
+
+D:\Pract\Projects\ASPnetCoreReact>

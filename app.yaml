@@ -1,0 +1,4 @@
+runtime: aspnetcore
+env: flex
+service: ASPnetCoreReact.angular-harmony-370505
+service_account: my-first-project-svc-acct@angular-harmony-370505.iam.gserviceaccount.com
