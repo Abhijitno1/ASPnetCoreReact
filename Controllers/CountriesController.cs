@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ASPnetCoreReact.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [ApiController]
     [Route("[controller]")]
     public class CountriesController : ControllerBase
