@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import { Collapse, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import './NavMenu.css';
+import '../css/NavMenu.css';
 
 export class NavMenu extends Component {
   static displayName = NavMenu.name;
 
   constructor (props) {
     super(props);
-
-    this.toggleNavbar = this.toggleNavbar.bind(this);
-    this.state = {
-      collapsed: true
-    };
+      this.toggleLeftSideMenu = this.toggleLeftSideMenu.bind(this);
+        this.toggleNavbar = this.toggleNavbar.bind(this);
+        this.state = {
+          collapsed: true
+        };
   }
 
   toggleNavbar () {
@@ -21,11 +21,18 @@ export class NavMenu extends Component {
     });
   }
 
+    toggleLeftSideMenu(event) {
+        event.preventDefault();
+        alert("You made it");
+    }
+
   render() {
     return (
-      <header>
-        <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3" container light>
+        <header>
+
+        <Navbar id="top-nav-menu" className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3" container light>
           <NavbarBrand tag={Link} to="/">ASPnetCoreReact</NavbarBrand>
+                <a href="#" onClick={ this.toggleLeftSideMenu }><i class="fa fa-bars toggle-sidebar-btn" aria-hidden="true"></i></a>
           <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
           <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!this.state.collapsed} navbar>
             <ul className="navbar-nav flex-grow">

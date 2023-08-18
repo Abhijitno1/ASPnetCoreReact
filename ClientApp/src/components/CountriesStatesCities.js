@@ -78,7 +78,7 @@ export function CountriesStatesCities() {
     }
 
     function objectSorter(prev, next) {
-        return (prev.text < next.text ? -1 : (prev.text == next.text ? 0 : 1));
+        return (prev.text < next.text ? -1 : (prev.text === next.text ? 0 : 1));
     }
 
     function fetchStates(country) {
@@ -122,7 +122,7 @@ export function CountriesStatesCities() {
     function onCountrySelect(e) {
         fetchStates(e.target.value);
         //fetchStates('GH');
-        let foundCountry = countries.find(c => c.value == e.target.value);
+        let foundCountry = countries.find(c => c.value === e.target.value);
         setSelectedCountry(foundCountry);
         console.log(`You selected country -${foundCountry?foundCountry.text:'none'}`);
     }
@@ -130,13 +130,13 @@ export function CountriesStatesCities() {
     function onStateSelect(e) {
         fetchCities(e.target.value);
         //fetchCities('BA');
-        let foundState = states.find(s => s.value == e.target.value);
+        let foundState = states.find(s => s.value === e.target.value);
         setSelectedState(foundState);
         console.log(`You selected state -${foundState ? foundState.text : 'none'}`);
     }
 
     function onCitySelect(e) {
-        let foundCity = cities.find(c => c.value == e.target.value);
+        let foundCity = cities.find(c => c.value === e.target.value);
         setSelectedCity(foundCity);
         console.log(`You selected city -${foundCity ? foundCity.text : 'none'}`);
     }

@@ -5,18 +5,18 @@ import { CountriesStatesCities } from "./components/CountriesStatesCities";
 import { JavascriptPlayer } from "./components/JavaScriptPlayer";
 
 const AppRoutes = [
-  {
-    index: true,
-    element: <Home />
-  },
-  {
-    path: '/counter',
-    element: <Counter />
-  },
-  {
-    path: '/fetch-data',
-    element: <FetchData />
-  },
+    {
+        index: true,
+        element: <Home />
+    },
+    {
+        path: '/counter',
+        element: <Counter />
+    },
+    {
+        path: '/fetch-data',
+        element: <FetchData />
+    },
     {
         path: '/world-cities',
         element: <CountriesStatesCities />
