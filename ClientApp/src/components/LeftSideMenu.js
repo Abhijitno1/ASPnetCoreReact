@@ -1,7 +1,11 @@
 
-export function LeftSideMenu() {
-  return (
-      <aside id="sidebar" class="sidebar">
+import { connect } from "react-redux";
+import { menuShowAction } from "../actions/menuShowAction";
+export function LeftSideMenu(props) {
+    console.log(props);
+    var hidden = props.showMenu ? '' : 'hidden'; 
+    return (
+        <aside id="sidebar" className={`sidebar ${hidden}` }>
         <ul class="sidebar-nav" id="sidebar-nav">
 	        <li class="nav-heading">Practice</li>
           <li class="nav-item">
@@ -20,3 +24,12 @@ export function LeftSideMenu() {
       </aside>
   );
 }
+
+const mapStateToProps = state => ({
+    ...state
+});
+const mapDispatchToProps = dispatch => ({
+    showAction: (payload) => dispatch(menuShowAction(payload))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(LeftSideMenu);

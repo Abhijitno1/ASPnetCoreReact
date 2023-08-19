@@ -2,6 +2,7 @@ import { Counter } from "./components/Counter";
 import { FetchData } from "./components/FetchData";
 import { Home } from "./components/Home";
 import { CountriesStatesCities } from "./components/CountriesStatesCities";
+import ReduxDemo from "./components/ReduxDemo";
 import { JavascriptPlayer } from "./components/JavaScriptPlayer";
 
 const AppRoutes = [
@@ -20,6 +21,11 @@ const AppRoutes = [
     {
         path: '/world-cities',
         element: <CountriesStatesCities />
+
+    },
+    {
+        path: '/redux-demo',
+        element: <ReduxDemo />
     },
     {
         path: '/jsplayer',
