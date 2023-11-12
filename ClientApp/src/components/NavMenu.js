@@ -9,6 +9,7 @@ export class NavMenu extends Component {
 
   constructor (props) {
       super(props);
+      console.log('props', props);
 
       this.toggleLeftSideMenu = this.toggleLeftSideMenu.bind(this);
         this.toggleNavbar = this.toggleNavbar.bind(this);
@@ -25,9 +26,8 @@ export class NavMenu extends Component {
 
     toggleLeftSideMenu(event) {
         event.preventDefault();
-        console.log('props', this.props);
-        //alert("You made it");
-        return this.props.menuShowAction(this.props.showMenu);
+        console.log('showMenu', this.props.showMenu);
+        return this.props.menuShowAction(!this.props.showMenu);
     }
 
   render() {
@@ -67,7 +67,7 @@ export class NavMenu extends Component {
 }
 
 const mapStateToProps = state => ({
-    ...state
+    ...state.leftMenuReducer
 });
 const mapDispatchToProps = dispatch => ({
     menuShowAction: (payload) => dispatch(menuShowAction(payload))

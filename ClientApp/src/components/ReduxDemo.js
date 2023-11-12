@@ -8,7 +8,6 @@ import '../css/ReduxDemo.css';
 
 class ReduxDemo extends Component {
     render() {
-        console.log(this.props);
         return (
             <div className="App">
                 <header className="App-header">
@@ -40,7 +39,7 @@ class ReduxDemo extends Component {
     }
 }
 const mapStateToProps = state => ({
-    ...state
+    ...state.rotateReducer
 });
 const mapDispatchToProps = dispatch => ({
     rotateAction: (payload) => dispatch(rotateAction(payload))

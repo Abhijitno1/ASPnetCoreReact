@@ -1,7 +1,13 @@
 import { createStore } from "redux";
 import rootReducer from "./reducers";
 import rotateReducer from "./reducers/rotateReducer";
-function configureStore(state = { showMenu: true, rotating: true }) {
-    return createStore(rotateReducer, state);
+import leftMenuReducer from "./reducers/leftMenuReducer";
+
+const initialState = {
+    rotateReducer: { showMenu: true },
+    leftMenuReducer: { rotating: true }
+};
+function configureStore(state = initialState) {
+    return createStore(rootReducer, state);
 }
 export default configureStore;

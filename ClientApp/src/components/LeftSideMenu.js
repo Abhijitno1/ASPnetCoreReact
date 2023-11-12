@@ -6,27 +6,27 @@ export function LeftSideMenu(props) {
     var hidden = props.showMenu ? '' : 'hidden'; 
     return (
         <aside id="sidebar" className={`sidebar ${hidden}` }>
-        <ul class="sidebar-nav" id="sidebar-nav">
-	        <li class="nav-heading">Practice</li>
-          <li class="nav-item">
-            <a class="nav-link collapsed" href="/Home/Contact">
-              <i class="bi bi-person"></i>
-              <span>Test Playground</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link collapsed" href="/Home/InfiniteScroll">
-              <i class="bi bi-question-circle"></i>
-              <span>Infinite Scroll</span>
-            </a>
-          </li>
+            <ul className="sidebar-nav" id="sidebar-nav">
+                <li className="nav-heading">Practice</li>
+                <li className="nav-item">
+                    <a className="nav-link collapsed" href="/Home/Contact">
+                        <i className="bi bi-person"></i>
+                        <span>Test Playground</span>
+                    </a>
+                </li>
+                <li className="nav-item">
+                    <a className="nav-link collapsed" href="/Home/InfiniteScroll">
+                        <i className="bi bi-question-circle"></i>
+                         <span>Infinite Scroll</span>
+                    </a>
+                </li>
         </ul>
       </aside>
   );
 }
 
 const mapStateToProps = state => ({
-    ...state
+    ...state.leftMenuReducer
 });
 const mapDispatchToProps = dispatch => ({
     showAction: (payload) => dispatch(menuShowAction(payload))

@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import LeftMenuReducer from './leftMenuReducer';
-import RotateReducer from './rotateReducer';
+import leftMenuReducer from './leftMenuReducer';
+import rotateReducer from './rotateReducer';
 
 const rootReducer = combineReducers({
-    leftMenuReducer: LeftMenuReducer,
-    rotateReducer: RotateReducer
+    leftMenuReducer,
+    rotateReducer
 });
 export default rootReducer;
